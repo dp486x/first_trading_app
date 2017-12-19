@@ -1,0 +1,33 @@
+{
+  "name": "first_trading_app",
+  "version": "1.0.0",
+  "description": "My First Trading app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dp486x/first_trading_app.git"
+  },
+  "author": "Dinesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dp486x/first_trading_app/issues"
+  },
+  "homepage": "https://github.com/dp486x/first_trading_app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonparser": "^1.0.1",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.13.7",
+    "morgan": "^1.9.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0",
+    "nodemon": "^1.13.3"
+  }
+}
