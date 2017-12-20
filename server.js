@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const route = express.Router();
 const port = 3333;
-
 //Static files path
-app.use(express.static('__dirName'));
+app.use(express.static(__dirname + '/'));
 
 app.use(morgan('dev', {
   skip: function(req, res) {
