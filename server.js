@@ -26,13 +26,15 @@ app.use(morgan('dev', {
 app.use('/user', require('./app/controllers/user_controller'));
 
 app.get('/', (req, res) => {
-  res.send("you deserve a fruit");
-});
+       res.send("you deserve a fruit");
+}    );
 
 
 
-
-
+//Error Handler when  not found 
+app.use((req, res, next)=>{
+  req.status(404).send("Sorry cannot find it!!");
+})
 
 app.listen(port, () => {
   console.log("Server started at : " + chalk.blue(port));
