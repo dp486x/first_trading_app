@@ -11,7 +11,7 @@ app.use(function timeLog(req, res, next) {
 
 app.route('/')
   .get((req, res, next) => {
-    res.send('animals home page.GET.app.route')
+    res.send('Information About the user.')
   })
 
   .post((req, res, next) => {
