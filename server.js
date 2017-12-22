@@ -5,7 +5,11 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const route = express.Router();
 const mongoose = require('mongoose');
+const creds = require('./creds.json');
 const port = 3333;
+
+//DB Connection
+mongoose.connect('mongodb://'+creds.mlab.dbUser+':'+creds.mlab.dbPassword+'@'+creds.mlab.url+':'+creds.mlab.port+'/'+creds.mlab.database);
 
 //Static files path
 app.use(express.static(__dirname + '/'));
