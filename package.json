@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/dp486x/first_trading_app#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "jsonparser": "^1.0.1",

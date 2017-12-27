@@ -5,7 +5,9 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const route = express.Router();
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const creds = require('./creds.json');
+const bodyParser = require('body-parser');
 const port = 3333;
 
 //DB Connection
@@ -14,6 +16,8 @@ mongoose.connect('mongodb://'+creds.mlab.dbUser+':'+creds.mlab.dbPassword+'@'+cr
 //Static files path
 app.use(express.static(__dirname + '/'));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(morgan('dev', {
   skip: function(req, res) {
     return res.statusCode < 400
