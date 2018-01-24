@@ -11,12 +11,14 @@ const bodyParser = require('body-parser');
 const port = 3333;
 
 //DB Connection
-mongoose.connect('mongodb://'+creds.mlab.dbUser+':'+creds.mlab.dbPassword+'@'+creds.mlab.url+':'+creds.mlab.port+'/'+creds.mlab.database);
+mongoose.connect('mongodb://' + creds.mlab.dbUser + ':' + creds.mlab.dbPassword + '@' + creds.mlab.url + ':' + creds.mlab.port + '/' + creds.mlab.database);
 
 //Static files path
 app.use(express.static(__dirname + '/'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 app.use(morgan('dev', {
   skip: function(req, res) {
@@ -33,15 +35,15 @@ app.use(morgan('dev', {
 }));
 
 app.use('/user', require('./app/controllers/user_controller'));
+app.use('/notify', require('./app/controllers/notifications_controller'));
+// app.use('/user', require('./app/controllers/user_controller'));
 
 app.get('/', (req, res) => {
-       res.send("you deserve a fruit");
-}    );
-
-
+  res.send("you deserve a fruit");
+});
 
 //Error Handler when  not found
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
   req.status(404).send("Sorry cannot find it!!");
 })
 
